@@ -11,11 +11,12 @@ from keras.layers import Layer
 
 class BertLayer(Layer):
     
-    '''BertLayer which support next output_representation param:
+    '''BertLayer which support next output_representation param (https://tfhub.dev/google/bert_uncased_L-12_H-768_A-12/1):
     
     pooled_output: the first CLS token after adding projection layer () with shape [batch_size, 768]. 
     sequence_output: all tokens output with shape [batch_size, max_length, 768].
-    mean_pooling: mean pooling of all tokens output [batch_size, max_length, 768].
+    
+    Custom mean_pooling: mean pooling of all tokens output [batch_size, 768].
     
     
     You can simple fine-tune last n layers in BERT with n_fine_tune_layers parameter. For view trainable parameters call model.trainable_weights after creating model.
